@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500&display=swap');
+
+/* ── Page Wrapper ── */
+.accessories {
+  min-height: 100vh;
+  background: #fafaf8;
+  padding-top: 72px;
+}
+
+/* ── Hero ── */
+.accessories__hero {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  background: url('../Images/accessories.jpg') center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+}
+
+.accessories__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.40);
+}
+
+.accessories__hero-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.accessories__hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+
+.accessories__hero-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.06em;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Category Strip ── */
+.accessories__categories {
+  background: #fff;
+  border-bottom: 1px solid #ece9e4;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.accessories__cat-btn {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #666;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 1.1rem 1.4rem;
+  cursor: pointer;
+}
+
+.accessories__cat-btn:hover,
+.accessories__cat-btn.active {
+  color: #0a1628;
+  border-bottom-color: #c9a84c;
+}
+
+/* ── Body ── */
+.accessories__body {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+/* ── Grid ── */
+.accessories__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 1.5rem;
+}
+
+/* ── Card ── */
+.accessories__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  cursor: pointer;
+}
+
+.accessories__card__img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  aspect-ratio: 3 / 4;
+  background: #ece9e4;
+}
+
+.accessories__card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.accessories__card:hover .accessories__card__img-wrap img {
+  transform: scale(1.06);
+}
+
+/* Quick Add */
+.accessories__card__quick {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10,22,40,0.9);
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: 0.3s;
+}
+
+.accessories__card:hover .accessories__card__quick {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text */
+.accessories__card__name {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.88rem;
+  color: #1a1a1a;
+}
+
+.accessories__card__price {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #0a1628;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .accessories__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .accessories__grid { grid-template-columns: repeat(2, 1fr); }
+  .accessories__hero { height: 280px; }
+}
+
+@media (max-width: 480px) {
+  .accessories__grid { grid-template-columns: repeat(2, 1fr); }
+}

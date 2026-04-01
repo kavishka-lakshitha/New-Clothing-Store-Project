@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500&display=swap');
+
+:root {
+  --blue-deep: #0a1628;
+  --blue-mid: #1a3a6b;
+  --blue-accent: #2563eb;
+  --blue-light: #3b82f6;
+  --blue-glow: rgba(37, 99, 235, 0.18);
+  --gold: #c9a84c;
+  --white: #ffffff;
+  --white-soft: rgba(255, 255, 255, 0.85);
+  --white-faint: rgba(255, 255, 255, 0.1);
+  --nav-height: 72px;
+}
+
+/* ── Base ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Navbar ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  background: black;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: 0 2px 32px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(255,255,255,0.05);
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.25);
+}
+
+/* ── Inner layout ── */
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── LEFT: Brand ── */
+.navbar__brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  text-decoration: none;
+  gap: 1px;
+}
+
+.navbar__brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: opacity 0.2s;
+}
+
+.navbar__brand-tagline {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: white;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.navbar__brand:hover .navbar__brand-name {
+  opacity: 0.85;
+}
+
+/* ── CENTER: Nav links (desktop) ── */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.navbar__links a {
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white-soft);
+  text-decoration: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 1px;
+  background: var(--gold);
+  transition: transform 0.25s ease;
+}
+
+.navbar__links a:hover {
+  color: var(--white);
+  background: var(--white-faint);
+}
+
+.navbar__links a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ── RIGHT: Icons ── */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.navbar__icon-btn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--white-soft);
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.navbar__icon-btn:hover {
+  color: var(--white);
+  background: var(--white-faint);
+  transform: translateY(-1px);
+}
+
+.navbar__icon-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.6;
+}
+
+/* Cart badge */
+.navbar__badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: white;
+  color: #000000;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: white;
+  line-height: 1;
+}
+
+/* Profile button */
+.navbar__profile-btn {
+  background: white;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: black;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  box-shadow: 0 0 0 0 var(--blue-glow);
+}
+
+.navbar__profile-btn:hover {
+  box-shadow: 0 0 0 4px var(--blue-glow);
+  transform: translateY(-1px);
+  border-color: var(--gold);
+}
+
+/* Divider */
+.navbar__divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.12);
+  margin: 0 0.25rem;
+}
+
+/* ── Hamburger (mobile) ── */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.navbar__hamburger:hover {
+  background: var(--white-faint);
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--white-soft);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.navbar__hamburger.open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.navbar__hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.navbar__hamburger.open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ── Mobile drawer ── */
+.navbar__mobile-menu {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background: var(--blue-deep);
+  border-top: 1px solid rgba(37,99,235,0.2);
+  border-bottom: 1px solid rgba(37,99,235,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  padding: 1rem 1.5rem 1.5rem;
+  flex-direction: column;
+  gap: 0.25rem;
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.navbar__mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.navbar__mobile-menu a {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-soft);
+  text-decoration: none;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.navbar__mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+.navbar__mobile-menu a:hover {
+  color: var(--gold);
+  padding-left: 1rem;
+}
+
+/* ── Search bar (dropdown) ── */
+.navbar__search-wrapper {
+  position: relative;
+  max-width: 23;
+}
+
+.navbar__search-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 280px;
+  background: rgb(0, 0, 0);
+  border: 1px solid rgba(107, 107, 107, 0.35);
+  border-radius: 8px;
+  padding: 0.6rem;
+  display: flex;
+  gap: 0.4rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.navbar__search-dropdown.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.navbar__search-dropdown input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
+  color: var(--white);
+  font-family: garamond;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  padding: 0.45rem 0.7rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.navbar__search-dropdown input::placeholder {
+  color: rgba(250, 250, 250, 0.35);
+}
+
+
+
+.navbar__search-dropdown button {
+  background:rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  color: #000000;
+  cursor: pointer;
+  padding: 0 0.7rem;
+  font-size: 0.75rem;
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 0.1em;
+  transition: background 0.2s;
+}
+
+.navbar__search-dropdown button:hover {
+  background: var(--blue-light);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__mobile-menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .navbar__brand-name {
+    font-size: 1.35rem;
+  }
+
+  .navbar__search-dropdown {
+    width: 230px;
+    right: -50px;
+  }
+}

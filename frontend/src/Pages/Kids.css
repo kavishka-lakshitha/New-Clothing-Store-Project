@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500&display=swap');
+
+/* ── Page Wrapper ── */
+.kids {
+  min-height: 100vh;
+  background: #fafaf8;
+  padding-top: 72px;
+}
+
+/* ── Hero ── */
+.kids__hero {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  background: url('../Images/home.jpg') center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+}
+
+.kids__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.40);
+}
+
+.kids__hero-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.kids__hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+
+.kids__hero-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.06em;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Category Strip ── */
+.kids__categories {
+  background: #fff;
+  border-bottom: 1px solid #ece9e4;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.kids__cat-btn {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #666;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 1.1rem 1.4rem;
+  cursor: pointer;
+  background: none;
+}
+
+.kids__cat-btn:hover,
+.kids__cat-btn.active {
+  color: #0a1628;
+  border-bottom-color: #c9a84c;
+}
+
+/* ── Body ── */
+.kids__body {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+/* ── Top Bar ── */
+.kids__topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.kids__count {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  color: #888;
+}
+
+.kids__count span {
+  color: #0a1628;
+}
+
+.kids__topbar-right {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.kids__sort,
+.kids__filter-toggle {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  border: 1px solid #ddd;
+  padding: 0.45rem 1rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+.kids__filter-toggle:hover {
+  background: #0a1628;
+  color: #fff;
+}
+
+/* ── Grid ── */
+.kids__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+/* ── Card ── */
+.kids__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.kids__card__img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+.kids__card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.kids__card:hover img {
+  transform: scale(1.06);
+}
+
+/* Badge */
+.kids__card__badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #0a1628;
+  color: white;
+  padding: 3px 8px;
+}
+
+.kids__card__badge--sale { background: #c9a84c; }
+.kids__card__badge--hot  { background: red; }
+
+/* Wishlist */
+.kids__card__wish {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  border: none;
+}
+
+/* Quick Add */
+.kids__card__quick {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  padding: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.kids__card:hover .kids__card__quick {
+  opacity: 1;
+}
+
+/* Info */
+.kids__card__price-row {
+  display: flex;
+  gap: 10px;
+}
+
+.kids__card__old-price {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Colors */
+.kids__card__colors {
+  display: flex;
+  gap: 5px;
+}
+
+.kids__card__color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Load More */
+.kids__loadmore {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .kids__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .kids__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .kids__grid { grid-template-columns: repeat(2, 1fr); }
+}
